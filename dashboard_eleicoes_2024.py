@@ -1,11 +1,18 @@
 # Importando bibliotecas #
+import streamlit as st
 import pandas as pd
 import plotly.express as px
-import streamlit as st
 from datetime import datetime
 
-#@st.cache
-df = pd.read_csv("eleicoes_2024_belem_finalizado2.csv")
+@st.cache_data
+def load_data(caminho):
+    caminho = str(caminho)
+    df = pd.read_csv(caminho)
+
+    return df
+
+df = load_data("eleicoes_2024_belem_finalizado2.csv")
+
 candidato = "JORGE VAZ"
 with st.sidebar:
     st.title("Resultado Eleições 2024 - Belém")
