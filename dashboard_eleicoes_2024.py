@@ -5,13 +5,12 @@ import plotly.express as px
 from datetime import datetime
 
 @st.cache_data
-def load_data(caminho):
-    caminho = str(caminho)
-    df = pd.read_csv(caminho)
+def load_data():
+    df = pd.read_csv("eleicoes_2024_belem_finalizado2.csv")
 
     return df
 
-df = load_data("eleicoes_2024_belem_finalizado2.csv")
+df = load_data()
 
 candidato = "JORGE VAZ"
 with st.sidebar:
